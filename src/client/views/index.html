@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webpack DEMO</title>
+</head>
+<body>
+  <header>
+    <h1>News with Article with NPL</h1>
+  </header>
+  <section class = "form">
+      <label for = "website-url">Website Url: </label>
+      <input type = "text" id = "website-url" placeholder="paste url address of article here">
+      <button id = "generate" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">Generate</button>
+  </section>
+  <section class = "result">
+      <div id = "score"></div>
+      <div id = "agreement"></div>
+      <div id = "subjectivity"></div>
+      <div id = "confidence"></div>
+      <div id = "irony"></div>
+  </section>
+</body>
+</html>
