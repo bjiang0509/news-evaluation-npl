@@ -26,9 +26,7 @@ app.get('/', function (req, res) {
 const handleFetchApi = async(req, res) => {
     //req.body.apiUrl
     //req.body.url
-    //let key = '0220ca408ea683689233a27434395f06'
     const url = `${req.body.apiUrl}key=${apiKey}&url=${req.body.url}&lang=en`;
-    //console.log(req.body.apiUrl+", "+key+ ", "+ req.body.url)
     const response = await fetch(url)
     try{
         const data = await response.json();
