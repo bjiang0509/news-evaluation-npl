@@ -1,9 +1,12 @@
 const dotenv = require('dotenv'); //allow us to use env variables
 dotenv.config()
+console.log(process.env.API_KEY)
 
+let projectData = {}
+const apiKey = process.env.API_KEY;
 const path = require('path');
-const express =  require('express');
-
+const express = require('express');
+const fetch = require('node-fetch');
 const app = express();
 
 const bodyParser = require('body-parser');
@@ -23,7 +26,9 @@ app.get('/', function (req, res) {
 const handleFetchApi = async(req, res) => {
     //req.body.apiUrl
     //req.body.url
-    const url = `${req.body.apiUrl}key=${process.env.API_KEY}&url=${req.body.url}&lang=en`;
+    //let key = '0220ca408ea683689233a27434395f06'
+    const url = `${req.body.apiUrl}key=${apiKey}&url=${req.body.url}&lang=en`;
+    //console.log(req.body.apiUrl+", "+key+ ", "+ req.body.url)
     const response = await fetch(url)
     try{
         const data = await response.json();
@@ -32,7 +37,8 @@ const handleFetchApi = async(req, res) => {
         projectData.subjectivity = data.subjectivity;
         projectData.confidence = data.confidence;
         projectData.irony = data.irony;
-        res.send(data)
+        console.log(projectData)
+        res.send(projectData)
     }catch(err){
         console.log("err", err);
     }

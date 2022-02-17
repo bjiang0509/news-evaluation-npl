@@ -12,13 +12,13 @@ const handleSubmit = (event) => {
     }
     //if url is valid...
     let data = {
-        apiUrl: 'https://api.meaningcloud.com/sentiment-2.1',
+        apiUrl: 'https://api.meaningcloud.com/sentiment-2.1?',
         url: userInput
     }
     postData("http://localhost:8081/fetchApi", data)
-    .then(
-        updateUI()
-    )
+    .then((data) =>{
+        updateUI(data)
+    })
     .catch(err => {
         console.log("error occurred:", err);
     })
@@ -41,24 +41,18 @@ const postData = async(url = "", data = {}) => {
     }
 }
 
-const updateUI = async() => {
+const updateUI = (data) => {
     //retrieve data from server
-    const response = await fetch("http://localhost:8081/all")
-    try{
-        const data = await response.json();
-        let score = document.querySelector('#score');
-        let agreement = document.querySelector('#agreement');
-        let subjectivity = document.querySelector('#subjectivity');
-        let confidence = document.querySelector('#confidence');
-        let irony = document.querySelector('#irony');
-        score.innerHTML = `Score: ${data.score_tag}`;
-        agreement.innerHTML = `Agreement: ${data.agreement}`;
-        subjectivity.innerHTML = `Subjectivity: ${data.subjectivity}`;
-        confidence.innerHTML = `Confidence: ${data.confidence}`;
-        irony.innerHTML = `Irony: ${data.irony}`
-    }catch(err){
-        console.log("error occurred in getData", err);
-    }
+    let score = document.querySelector('#score');
+    let agreement = document.querySelector('#agreement');
+    let subjectivity = document.querySelector('#subjectivity');
+    let confidence = document.querySelector('#confidence');
+    let irony = document.querySelector('#irony');
+    score.innerHTML = `Score: ${data.score_tag}`;
+    agreement.innerHTML = `Agreement: ${data.agreement}`;
+    subjectivity.innerHTML = `Subjectivity: ${data.subjectivity}`;
+    confidence.innerHTML = `Confidence: ${data.confidence}`;
+    irony.innerHTML = `Irony: ${data.irony}`
 }
 
 export {handleSubmit, postData, updateUI}
