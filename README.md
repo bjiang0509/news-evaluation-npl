@@ -25,5 +25,5 @@ The server is set up using `express` from node.js and `npm` (package manager for
 dotenv needs to be installed to use enviroment variables. The `.env` file is located in the src/server folder and it contains the api key provided by the MeaningCloud API
 
 ## Running the App
-1. run `npm run prod` on the terminal
+1. run `npm run prod` and `npm run start` on the terminal
 
