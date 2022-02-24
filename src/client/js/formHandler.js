@@ -41,7 +41,6 @@ const postData = async(url = "", data = {}) => {
 }
 
 const updateUI = (data) => {
-    //retrieve data from server
     let score = document.querySelector('#score');
     let agreement = document.querySelector('#agreement');
     let subjectivity = document.querySelector('#subjectivity');
