@@ -27,7 +27,6 @@ const handleSubmit = (event) => {
 const postData = async(url = "", data = {}) => {
     const response = await fetch(url, {
         method: 'post',
-        //credentials: 'same-origin',
         headers: {
             'Content-Type': 'application/json'
         },
