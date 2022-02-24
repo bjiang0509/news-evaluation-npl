@@ -22,7 +22,7 @@ The API for NPL is [MeaningCloud](https://www.meaningcloud.com).
 The server is set up using `express` from node.js and `npm` (package manager for Node.js packages) can be used to install the dependencies for the project (`npm install`).
 
 ### dotenv
-dotenv needs to be installed to use enviroment variables. The `.env` file is located in the src/server folder and it contains the api key provided by the MeaningCloud API
+dotenv needs to be installed to use enviroment variables. The `.env` file is located in the root directory and it contains the api key provided by the MeaningCloud API
 
 ## Running the App
 1. run `npm run prod` and `npm run start` on the terminal
